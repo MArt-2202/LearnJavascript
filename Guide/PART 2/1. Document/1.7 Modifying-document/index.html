@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Документ. Изменение документа</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}
+
+            #clock span,#clock i{display:inline-block;vertical-align: middle;}#clock span{width: 30px;height: 30px;border-radius:2px;font-size:12px; line-height:32px !important;text-align:center;color: #FFF;background: #0087D2;}; #clock i{font-style:normal}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>1.7 Изменение документа</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: createTextNode vs innerHTML vs textContent
+            </h2>
+            <p>У нас есть пустой DOM-элемент elem и строка text.<br>
+            	Какие из этих 3-х команд работают одинаково?<br>
+            	1. elem.append(document.createTextNode(text))<br>
+            	2. elem.innerHTML = text
+            	3. elem.textContent = text
+            </p>
+            <div class="result"></div>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Очистите элемент
+            </h2>
+            <p>Создайте функцию clear(elem), которая удаляет всё содержимое из elem.</p>
+			<div class="result">
+            	<ol id="elem">
+				  <li>Привет</li>
+				  <li>Мир</li>
+				</ol>
+            </div>
+            <button class="btn btn-1">Run code</button>
+        </section>
+        <section id="section-4">
+            <h2>
+                Задача 4: Создайте список
+            </h2>
+            <p>Напишите интерфейс для создания списка.</p>
+            <p>Для каждого пункта:<br>
+            	1. Запрашивайте содержимое пункта у пользователя с помощью prompt. <br>
+            	2. Создавайте элемент li и добавляйте его к ul. <br>
+				3. Процесс прерывается, когда пользователь нажимает Esc или вводит пустую строку.
+            </p>
+            <p>Все элементы должны создаваться динамически.</p>
+            <p>Если пользователь вводит HTML-теги -– пусть в списке они показываются как обычный текст.</p>
+			<div class="result"></div>
+            <button class="btn btn-1">Run code</button>
+        </section>
+         <section id="section-9">
+            <h2>
+                Задача 8: Часы с использованием setInterval
+            </h2>
+            <div id="clock">
+                <span id="hours"></span>
+                <i>часов </i> :
+                <span id="minutes"></span>
+                <i>минут</i> :
+                <span id="seconds"></span>
+                <i>секунд</i>
+            </div>
+        </section>
+        <section id="section-9">
+            <h2>
+                Задача 9: Вставьте HTML в список
+            </h2>
+            <p>Напишите код для вставки между этими двумя li</p>
+            <div class="result">
+                <ul id="ul">
+                  <li id="one">1</li>
+                  <li id="two">4</li>
+                </ul>
+            </div>
+            <button class="btn btn-1">Run code</button>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Типы данных. Дата и время</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table {border-collapse:collapse;}td {padding:10px;border:1px solid #CCC;}ul,ol{list-style-position: inside}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>5.11 Дата и время</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Создайте дату
+            </h2>
+            <p>Создайте объект Date для даты: 20 февраля 2012 года, 3 часа 12 минут. Временная зона – местная</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Покажите день недели
+            </h2>
+            <p>Напишите функцию getWeekDay(date), показывающую день недели в коротком формате: «ПН», «ВТ», «СР», «ЧТ», «ПТ», «СБ», «ВС».</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-3">
+            <h2>
+                Задача 3: День недели в европейской нумерации 
+            </h2>
+            <p>В Европейских странах неделя начинается с понедельника (день номер 1), затем идёт вторник (номер 2) и так до воскресенья (номер 7). Напишите функцию getLocalDay(date), которая возвращает «европейский» день недели для даты date.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-4">
+            <h2>
+                Задача 4: Какой день месяца был много дней назад? 
+            </h2>
+            <p>Создайте функцию getDateAgo(date, days), возвращающую число, которое было days дней назад от даты date.</p>
+            <p>К примеру, если сегодня двадцатое число, то getDateAgo(new Date(), 1) вернёт девятнадцатое и getDateAgo(new Date(), 2) – восемнадцатое.</p>
+            <p>Функция должна надёжно работать при значении days=365 и больших значениях</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-5">
+            <h2>
+                Задача 5: Последнее число месяца?
+            </h2>
+            <p>Напишите функцию getLastDayOfMonth(year, month), возвращающую последнее число месяца. Иногда это 30, 31 или даже февральские 28/29.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-6">
+            <h2>
+                Задача 6: Сколько сегодня прошло секунд? 
+            </h2>
+            <p></p>
+            <div class="result"></div>
+        </section>
+        <section id="section-7">
+            <h2>
+                Задача 7: Сколько секунд осталось до завтра? 
+            </h2>
+            <p>Создайте функцию getSecondsToTomorrow(), возвращающую количество секунд до завтрашней даты.</p>
+            <div class="result"></div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

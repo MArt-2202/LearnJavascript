@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Типы данных. Методы массивов</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table {border-collapse:collapse;}td {padding:10px;border:1px solid #CCC;}ul,ol{list-style-position: inside}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>5.5 Методы массивов</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Переведите текст вида border-left-width в borderLeftWidth
+            </h2>
+            <p>Напишите функцию camelize(str),<br>
+                которая преобразует строки вида «my-short-string» в «myShortString».</p>
+            <p>То есть дефисы удаляются, а все слова после них получают заглавную букву.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Фильтрация по диапазону
+            </h2>
+            <p>Напишите функцию filterRange(arr, a, b), которая принимает массив arr, ищет в нём элементы между a и b и отдаёт массив этих элементов.</p>
+            <p>Функция должна возвращать новый массив и не изменять исходный.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-4">
+            <h2>
+                Задача 4: Сортировать в обратном порядке
+            </h2>
+            <div class="result"></div>
+        </section>
+        <section id="section-5">
+            <h2>Задача 5: Скопировать и отсортировать массив</h2>
+            <div class="result"></div>
+        </section>
+        <section id="section-9">
+            <h2>Задача 9: Отсортировать пользователей по возрасту</h2>
+            <p>Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.</p>
+            <div class="result">Вывод результата в консоль</div>
+        </section>
+        <section id="section-10">
+            <h2>Задача 10: Перемешайте массивы</h2>
+            <p>Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-11">
+            <h2>Задача 11: Получить средний возраст</h2>
+            <p>Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст.</p>
+            <p>Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.</p>
+            <div class="result"></div>
+        </section>
+        <section id="section-12">
+            <h2>Оставить уникальные элементы массива</h2>
+            <p>Пусть arr – массив строк. Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.</p>
+            <div class="result"></div>
+        </section>
+
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

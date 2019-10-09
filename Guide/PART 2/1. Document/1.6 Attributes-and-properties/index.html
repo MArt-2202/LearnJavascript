@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Документ. Атрибуты и свойства</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table {border-collapse:collapse;}td {padding:10px;border:1px solid #CCC;}ul,ol{list-style-position: inside}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>1.6 Атрибуты и свойства</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Получите атрибут
+            </h2>
+            <p>Напишите код для выбора элемента с атрибутом data-widget-name из документа и прочитайте его значение.</p>
+            <div data-widget-name="menu">Choose the genre</div>
+            <div class="result"></div>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Сделайте внешние ссылки оранжевыми
+            </h2>
+            <p>Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.</p>
+            <p>Ссылка является внешней, если:<br> 
+                Её href содержит ://<br>
+                Но не начинается с http://internal.com.</p>
+            <div class="result">
+                <a name="list">the list</a>
+                <ul>
+                  <li><a href="http://google.com">http://google.com</a></li>
+                  <li><a href="/tutorial">/tutorial.html</a></li>
+                  <li><a href="local/path">local/path</a></li>
+                  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+                  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+                  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

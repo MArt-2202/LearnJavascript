@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Введение в события. Введение в браузерные события</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}
+
+            .nav{position:relative;display:inline-block;color:#FFF;font-size:14px;line-height:1;}.nav span{position:relative;display:inline-block;padding:11px 32px 9px 10px;cursor:pointer;border-radius:4px;background:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.nav span:hover{background:#218838;}.nav span:after{content:'';position:absolute;right: 10px;top:50%;margin-top:-4px;width:0;height:0;border-style:solid;border-width:5px 0 5px 12px;border-color:transparent transparent transparent #FFF;}.nav ul{display:none;position:absolute;top:100%;left:0;z-index:100;min-width:100%;background:#2BA2DF;border-radius: 0 0 4px 4px;overflow:hidden;list-style: none; white-space:nowrap;}.nav li{margin:0;order-bottom: 1px solid #FFF;border-bottom:1px solid #FFF;}.nav li:last-child{border-bottom:none;}.nav a{display:block;padding:11px 10px 9px 10px; color:#FFF;text-decoration:none;}.nav a:hover{background:#1F95D1;}.nav-open ul{display:block;}.nav-open span{border-radius:4px 4px 0 0;}.nav-open span:after{border-width:10px 6px 0 6px;border-color:#FFF transparent transparent transparent;}
+
+            .message-list{list-style:none;font-size:14px;}.message-list, .message-list p{font-size:14px;}.message-list li{position:relative;margin-bottom:20px;padding:15px;background:#EDEDED;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0, 0.25)}.message-list strong{display:block;margin-bottom:5px;}.message-list p:last-child{margin-bottom:0;}.message-close{position: absolute;top:10px;right: 10px;cursor: pointer;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.message-close:hover{color:#D1394E;}
+            
+            .carousel-wrapper{text-align:center;}.carousel{position:relative;display:inline-block;max-width:468px;height:152px;padding:10px 40px;overflow:hidden;border:2px solid #EDEDED;border-radius:4px;}.carousel > div{width:100%;height:128px;overflow:hidden;}.carousel ul{position:relative;left:0;width:9999px;margin:0;list-style:none;-webkit-transition:all 1s ease;transition:all 1s ease;}.carousel li{float:left;margin:0;width:128px;padding:0 10px;}.carousel ul:after{content:'';display:block;clear:both;} .arrow{display:inline-block;position:absolute;top:50%;z-index:50;display:inline-block;width:25px;height:25px;margin-top:-12.5px;cursor:pointer;background:#0086D1;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;font-size:16px;line-height:1;color:#FFF;}.arrow:hover{background: #0074B8;}.arrow:after{position:absolute;top: 50%;left: 50%;margin-left:-3px;margin-top:-8px;}.arrow-left{left:10px;}.arrow-right{right:10px;}.arrow-left:after{content:'‹'}.arrow-right:after{content:'›'}.arrow.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;cursor:not-allowed;background:#B8333E;}.arrow.disabled:after{content:'✖';margin-left:-6.5px;margin-top: -7px;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>2.1 Введение в браузерные события</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Скрыть элемент по нажатию кнопки
+            </h2>
+            <p>Добавьте JavaScript к кнопке button, чтобы при нажатии элемент div id="text" исчезал.</p>
+            <div class="result">
+                <div id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel numquam sequi temporibus, iusto enim. Repellendus totam id repudiandae, nostrum quidem quae labore consectetur, nisi natus quas rerum cum praesentium, dignissimos.</div>
+            </div>
+            <button class="btn btn-1">Run code</button>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Спрятать себя
+            </h2>
+            <p>Создайте кнопку, которая будет скрывать себя по нажатию.</p>
+            <button class="btn btn-1">Нажмите, чтобы спрятать</button>
+        </section>
+        <section id="section-4">
+            <h2>
+                Задача 4: Создать раскрывающееся меню
+            </h2>
+            <p>Создать меню, которое по нажатию открывается либо закрывается</p>
+            <div class="nav">
+                <span>Меню</span>
+                <ul>
+                    <li><a href="javascript:void(0)">Item - 1</a></li>
+                    <li><a href="javascript:void(0)">Item - 2</a></li>
+                    <li><a href="javascript:void(0)">Item - 3</a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="section-5">
+            <h2>
+                Задача 5: Добавить кнопку закрытия
+            </h2>
+            <p>
+                Есть список сообщений.<br>
+                При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
+            </p>
+            <ul class="message-list">
+                <li>
+                    <strong>Лошадь</strong>
+                    <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+                </li>
+                <li>
+                    <strong>Осёл</strong>
+                    <p>Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в хозяйстве многих развивающихся стран.</p>
+                </li>
+                <li>
+                    <strong>Кошка</strong>
+                    <p>Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых сигналов.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="section-6">
+            <h2>
+                Задача 6: Карусель
+            </h2>
+            <p>Создайте «Карусель» –- ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.</p>
+            <div class="carousel-wrapper">
+               <div class="carousel">
+                    <div>
+                        <ul>
+                            <li><img src="img/img-1.png" alt=""></li>
+                            <li><img src="img/img-4.png" alt=""></li>
+                            <li><img src="img/img-3.png" alt=""></li>
+                            <li><img src="img/img-2.png" alt=""></li>
+                            <li><img src="img/img-5.png" alt=""></li>
+                            <li><img src="img/img-10.png" alt=""></li>
+                            <li><img src="img/img-6.png" alt=""></li>
+                            <li><img src="img/img-8.png" alt=""></li>
+                            <li><img src="img/img-9.png" alt=""></li>
+                            <li><img src="img/img-1.png" alt=""></li>
+                            <li><img src="img/img-7.png" alt=""></li>
+                            <li><img src="img/img-12.png" alt=""></li>
+                            <li><img src="img/img-11.png" alt=""></li>
+                        </ul>
+                    </div>
+                   <span class="arrow arrow-left"></span>
+                   <span class="arrow arrow-right"></span>
+               </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

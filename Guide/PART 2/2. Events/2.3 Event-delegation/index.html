@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Введение в события. Делегирование событий</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}
+
+            .message-list{list-style:none;font-size:14px;}.message-list, .message-list p{font-size:14px;}.message-list li{position:relative;margin-bottom:20px;padding:15px;background:#EDEDED;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0, 0.25)}.message-list strong{display:block;margin-bottom:5px;}.message-list p:last-child{margin-bottom:0;}.message-close{position: absolute;top:10px;right: 10px;cursor: pointer;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.message-close:hover{color:#D1394E;}
+
+            .tree span{cursor:pointer;}.tree span:hover{text-decoration:underline;}
+
+            .sort-table th{cursor:pointer;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>2.3 Делегирование событий</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Спрячьте сообщения с помощью делегирования
+            </h2>
+            <p>
+                Дан список сообщений с кнопками для удаления [x] <br>
+                Заставьте кнопки работать.
+            </p>
+            <ul class="message-list">
+                <li>
+                    <strong>Лошадь</strong>
+                    <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+                </li>
+                <li>
+                    <strong>Осёл</strong>
+                    <p>Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в хозяйстве многих развивающихся стран.</p>
+                </li>
+                <li>
+                    <strong>Кошка</strong>
+                    <p>Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых сигналов.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Раскрывающееся дерево
+            </h2>
+            <p>Создайте дерево, которое по клику на заголовок скрывает-показывает потомков</p>
+            <div class="result">
+                <ul class="tree">
+                    <li><span>Животные</span>
+                      <ul>
+                        <li><span>Млекопитающие</span>
+                            <ul>
+                                <li>Коровы</li>
+                                <li>Ослы</li>
+                                <li>Собаки</li>
+                                <li>Тигры</li>
+                            </ul>
+                        </li>
+                        <li><span>Другие</span>
+                            <ul>
+                                <li>Змеи</li>
+                                <li>Птицы</li>
+                                <li>Ящерицы</li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><span>Рыбы</span>
+                        <ul>
+                            <li><span>Аквариумные</span>
+                                <ul>
+                                <li>Гуппи</li>
+                                <li>Скалярии</li>
+                            </ul>
+                        </li>
+                        <li><span>Морские</span>
+                            <ul>
+                                <li>Морская форель</li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="section-3">
+            <h2>
+                Задача 3: Сортируемая таблица
+            </h2>
+            <p>Сделать таблицу сортируемой: при клике на элемент th строки таблицы должны сортироваться по соответствующему столбцу.
+            </p>
+            <table class="sort-table">
+                <thead>
+                    <tr>
+                        <th data-type="age">Возраст</th>
+                        <th data-type="name">Имя</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td>Вася</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Петя</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Женя</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Маша</td>
+                      </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Илья</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

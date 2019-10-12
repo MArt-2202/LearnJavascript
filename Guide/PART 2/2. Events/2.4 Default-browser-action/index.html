@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Введение в события. Действия браузера по умолчанию</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px 10px;}section{margin-bottom:30px}h1,height:2px {padding left :15px ;padding right :15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}
+
+            .contents{padding:10px 20px;border-color:#CCCCCC;}
+            
+            .thumbs{max-width:550px;margin-left:auto;margin-right:auto;}.thumbs__list{display:grid;grid-template-columns:repeat(5, 1fr);grid-column-gap:10px;margin:10px 0 0 0;list-style:none;}.thumbs__list a{display:block;margin-bottom:15px;}.thumbs__list a:hover{border-color:#28a745}.thumbs__img, .thumbs__list a{padding:5px;border:1px solid #CCCCCC;}.thumbs__img div, .thumbs__list div{position:relative;padding-top: 55%;overflow: hidden;}.thumbs img{position:absolute; top:0;left:0;height:100%;min-width:100%;object-fit:cover;object-position:0 0;}a.thumbs__checked{border-color:#28a745;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>2.4 Действия браузера по умолчанию</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Почему не работает return false?
+            </h2>
+            <p>Почему в коде ниже return false не работает?</p>
+            <p>
+                <code>
+                    function handler() {
+                        alert( "..." );
+                        return false;
+                    }
+                    <br>
+                    <a href="http://w3.org" onclick="handler()">браузер откроет w3.org</a>
+                </code>
+            </p>
+            <div class="result">
+                 <code>
+                    function handler(e) {
+                        alert( "..." );
+                        e.preventDefault();
+                    }
+                    <br>
+                </code>
+            </div>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Поймайте переход по ссылке
+            </h2>
+            <p>Сделайте так, чтобы при клике на ссылки внутри элемента <code>id="contents"</code> пользователю выводился вопрос о том, действительно ли он хочет покинуть страницу, и если он не хочет, то прерывать переход по ссылке.</p>
+            <div class="result">
+                <fieldset class="contents">
+                    <legend>#contents</legend>
+                    <p>
+                      Как насчёт того, чтобы прочитать <a href="http://wikipedia.org">Википедию</a> или посетить <a href="http://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+                    </p>
+                  </fieldset>
+            </div>
+        </section>
+        <section id="section-3">
+            <h2>
+                Задача 3: Галерея изображений
+            </h2>
+            <p>Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.</p>
+            <div class="thumbs">
+                <div class="thumbs__img">
+                    <div>
+                        <img src="img/img-1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="thumbs__list">
+                    <a href="img/img-2.jpg">
+                        <div>
+                            <img src="img/img-2.jpg" alt="">
+                        </div>
+                    </a>
+                    <a href="img/img-3.jpg">
+                        <div>
+                            <img src="img/img-3.jpg" alt="">
+                        </div>
+                    </a>
+                    <a href="img/img-4.jpg">
+                        <div>
+                            <img src="img/img-4.jpg" alt="">
+                        </div>
+                    </a>
+                    <a href="img/img-5.jpg">
+                        <div>
+                            <img src="img/img-5.jpg" alt="">
+                        </div>
+                    </a>
+                    <a href="img/img-6.jpg">
+                        <div>
+                            <img src="img/img-6.jpg" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Интерфейсные события. Прокрутка</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container,.container-sm{margin:0 auto;padding:20px 10px;}.container-sm{max-width:576px;}.container{max-width:1000px;}section{margin-bottom:30px}h1,h2 {padding-left:15px;padding-right:15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px;}.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p,ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code,pre{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}.fl{float:left;}.fr{float:right;}.clearfix:before,.clearfix:after{content:'';display:table;}.clearfix:after{clear:both;}.content-1>section,.content-1>div{padding:10px;border:1px solid #EDEDED;}
+
+            @media(min-width: 701px){
+                .content-1 > section,.content-1 > div{float:left;width:48%;}.content-1 > section:nth-child(2n+2),.content-1 > div:nth-child(2n+2){float:right;}
+            }
+
+            .infinity-scroll{height:200px;overflow-y:scroll;}
+            .lazy-load img{margin-bottom: 20px; max-width: 30%;border:2px solid #EDEDED;border-radius:4px;}img.fl{margin-right:15px;}img.fr{margin-left:15px;}.scroll-top-container{padding-left:40px;}.scroll-top{position:fixed;top:10px;width:30px;height:30px;background:#28a745;cursor:pointer;}.scroll-top:after{content:'▲';position:absolute;top:50%;left: 50%;margin-left:-9px;margin-top:-9px;font-size:18px;line-height:1;color:#FFFFFF;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>3.5 Прокрутка</h1>
+        <div class="content-1 clearfix">
+            <section>
+                <h2>Бесконечная страница</h2>
+                <p>Создайте бесконечную страницу. Когда посетитель прокручивает её до конца, она автоматически добавляет текущие время и дату в текст (чтобы посетитель мог прокрутить ещё).</p>
+                <div class="infinity-scroll">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo est accusantium illum. Mollitia unde repellendus quasi illum, quidem, nulla odit asperiores, temporibus debitis consequuntur, reiciendis. Iste neque recusandae beatae mollitia repellendus quidem deleniti, at explicabo provident illo rerum perferendis distinctio, ratione tempore repellat similique non. Quidem consectetur delectus optio veniam cupiditate assumenda quae, ducimus. Vel nam dicta qui voluptas nemo magni ipsum facere dignissimos accusamus ad laudantium dolore temporibus eaque minus voluptatibus doloremque ipsam illum eos consequuntur veniam reiciendis repellendus tempora distinctio, quasi. Vel, accusantium quibusdam esse, laboriosam minima delectus expedita. Impedit, neque, obcaecati corporis delectus autem reprehenderit rerum nobis?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quae suscipit molestias repellendus doloribus officiis accusantium id iusto quis modi?</p>
+                </div>
+            </section>
+            <section>
+                <h2>
+                    Задача 2: Кнопка вверх/вниз
+                </h2>
+                <p>Создайте кнопку «наверх», чтобы помочь с прокруткой страницы.</p>
+                <ul>
+                    <li>Пока страница не прокручена вниз хотя бы на высоту окна – кнопка невидима.</li>
+                    <li>Когда страница прокручена вниз больше, чем на высоту окна – появляется стрелка «наверх» в левом верхнем углу. Если страница прокручивается назад, стрелка исчезает.</li>
+                    <li>Когда нажимается стрелка, страница прокручивается вверх.</li>
+                </ul>
+
+                <div class="scroll-top-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, dolorem dicta! Iure et quaerat eius earum autem. Optio vero iusto voluptas ducimus molestiae at vel, dolores deserunt quisquam eveniet, ullam non minima ex. Consequuntur veritatis dolores sapiente ipsum perspiciatis soluta id animi minus fugiat? Non aperiam, sequi, sapiente provident molestias amet facilis in vel nemo ipsum, tempora maxime illum odit cum! Suscipit rerum, mollitia temporibus nobis aspernatur, iste, perferendis ratione officia, voluptatem molestias iure eum tempora assumenda unde at culpa adipisci magni inventore veniam incidunt. Magnam, ut ad aperiam aliquid, modi adipisci provident sint iure recusandae similique commodi animi odit ipsa ullam nemo, quis tempora sapiente deserunt hic, accusantium rerum debitis. Iste quis adipisci laboriosam quidem nostrum ducimus obcaecati at consequatur nulla nobis minus vero quasi facilis ullam, animi quisquam sed non facere? Explicabo tempore natus voluptas, veniam itaque consequatur eaque non mollitia nemo. Deleniti aliquam laudantium consequuntur quidem. Aspernatur culpa alias ea sint, omnis cum odit aperiam itaque ratione ipsum dolorum asperiores! Nisi, tempore soluta delectus iusto doloremque tempora consectetur natus facere culpa, commodi magnam distinctio ullam quos ipsam pariatur quam asperiores, enim quia voluptatem ducimus facilis est! Odit, tenetur. Porro fugiat quas culpa adipisci animi ducimus voluptate, delectus!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt totam tempore inventore voluptas odit repudiandae tempora soluta rem, eveniet libero eum doloremque rerum sunt cumque dignissimos debitis aperiam ipsum officiis perspiciatis adipisci optio voluptatum quas! Eum ab, praesentium, magnam facilis repellat et alias accusantium dolores ea minus, earum repellendus. Fuga, aperiam. Minima, hic velit incidunt repellendus impedit corporis et pariatur illo dolores aliquam. Quos dolore velit excepturi voluptatem adipisci consectetur repellendus commodi sapiente doloribus, nesciunt soluta magni voluptates aperiam ducimus minus, sunt cupiditate necessitatibus obcaecati iste quas laborum recusandae doloremque. Alias unde, animi beatae dolorem laudantium vitae, magnam porro sapiente explicabo voluptatibus repellat deleniti illum dignissimos facere, officiis ab dolore neque similique! Fugit ex et sapiente quos mollitia distinctio libero, expedita velit, voluptate labore, error eligendi aut sunt magnam voluptatibus veniam vero. Voluptas est, recusandae pariatur ipsum voluptate, amet tempore, quae eius similique eos officiis fuga ab voluptatibus, aut sed itaque ut blanditiis veritatis aperiam ullam accusantium nihil saepe. Porro beatae consequatur ullam inventore ratione ducimus, eligendi maiores tenetur, laudantium sequi autem blanditiis sit aperiam rem voluptatem, consectetur magni cumque deserunt a! Eaque esse ad porro soluta, tempora iusto cupiditate beatae voluptatem dolorum eius numquam sint similique excepturi ipsum! Beatae, rerum, repellendus. Esse saepe pariatur delectus voluptatibus quisquam, earum laboriosam. Aperiam velit vero quos magnam possimus sunt accusantium atque dolor sequi eligendi dicta, molestias assumenda aliquid deserunt rerum laudantium alias, voluptate quod facilis, eum minima cupiditate! Tenetur possimus quo totam iure maxime dicta perferendis distinctio, facere numquam quidem labore nulla accusantium corrupti minus. Sit, blanditiis? Ipsum, vitae nam eaque omnis veritatis inventore quod quas amet nisi vel fugiat nulla culpa tempore harum perferendis ad atque quibusdam obcaecati odio necessitatibus dolores accusantium labore cumque! Consequuntur corrupti, quam enim commodi aliquam officiis consequatur obcaecati voluptatem rem perferendis, exercitationem, magnam laboriosam excepturi ratione!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quaerat illo, totam ut provident numquam quas eveniet? Voluptatem, id, doloremque. Illum saepe, cum beatae quae iste possimus omnis explicabo commodi inventore dicta facilis fugit tenetur eligendi, aperiam repellendus nostrum amet libero, eaque doloribus. Vel totam dolorum corrupti, adipisci, ea dicta!</p>
+                </div>
+            </section>
+            <section id="section-3">
+                <h2>
+                    Задача 3: Загрузка видимых изображений
+                </h2>
+                <div class="lazy-load">
+                    <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-1.jpg" class="fl">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut commodi, odit porro quam voluptatibus unde, modi eius quos placeat temporibus quasi ipsa aperiam. Maiores, earum ea ipsam repellendus accusantium dolor, iusto ullam voluptas eos veniam molestiae delectus enim cupiditate quas. Beatae ducimus eligendi accusamus cum voluptas asperiores animi aliquid obcaecati esse nesciunt et voluptate laboriosam, voluptatem mollitia doloremque temporibus commodi corrupti, fugit aliquam reiciendis quod perferendis maiores. Enim ipsum maxime iusto incidunt quas. Ratione totam, minima ipsa maxime sed cum quisquam natus enim vel ullam. Quos, omnis, quis? Exercitationem, veritatis, perspiciatis. Ducimus odio deserunt nostrum nemo quia repellendus mollitia reprehenderit non ab. Repellendus veritatis, atque totam? Sed blanditiis, cum culpa ad laudantium rem delectus explicabo, deleniti iste neque a. Ratione commodi repellendus, numquam expedita, vero veritatis tempora. Ut id harum, voluptate ad consequuntur veritatis repellendus, in voluptatum perferendis eum optio, velit neque hic maxime ipsa rem dignissimos suscipit quasi animi dicta. Numquam mollitia odit, ea nesciunt nostrum officiis recusandae architecto veritatis. Neque numquam reiciendis eius quae natus unde nam mollitia quia ducimus expedita modi aliquid, officiis, iure repellat velit, accusamus laudantium pariatur ratione. Dolore, nostrum laudantium blanditiis temporibus. Magnam molestias ex, quo deleniti dolore, harum consectetur doloribus necessitatibus fugiat excepturi.
+                    </p>
+                    <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-2.jpg" class="fr">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi voluptatum autem, tenetur voluptas eum, ratione. Incidunt sint quo explicabo nobis id dolorum obcaecati quod velit? Numquam mollitia error eos, libero asperiores possimus, suscipit at distinctio voluptate iusto! Minus praesentium iusto nam nulla, labore quaerat accusantium exercitationem voluptatum quam quibusdam fugiat dolorem, illum dignissimos culpa itaque quos debitis. Vitae dolorem sapiente voluptate magnam consequatur? Quae officia consectetur cum quibusdam labore molestias tempore magni voluptatem esse! Iusto quae ipsa totam aperiam quas. Laboriosam et modi, fuga facilis repudiandae iste quaerat ipsam harum molestiae delectus velit maxime, autem illo eos magnam, distinctio tempora cum nam accusamus hic id. Blanditiis cumque est, impedit eveniet aliquam enim! Illum labore nulla corporis nostrum iste vero mollitia aperiam distinctio hic. Ab optio, debitis aliquid beatae libero quis quam blanditiis, nihil numquam, praesentium tempore provident! Ullam itaque nam nulla qui nemo. Iusto ducimus repellendus molestiae deleniti adipisci quos, autem, eos aliquid officiis quisquam quod harum qui suscipit quibusdam architecto atque magni nostrum. Eum tenetur sint commodi ab, dolores asperiores reprehenderit quis. Accusantium totam earum minima ex asperiores nostrum beatae sunt commodi suscipit laudantium quo maiores modi, necessitatibus illum, quisquam sapiente, repellat laborum ipsum neque tempore architecto eum nemo pariatur quasi tempora! Architecto minima est sed eveniet maxime consectetur, explicabo blanditiis atque unde, quaerat, aperiam ut qui dicta quisquam amet inventore. Deserunt, esse, modi. Tempora, quibusdam, dignissimos? Est eligendi aliquid sint, dignissimos dolore aperiam, distinctio magnam, asperiores sequi magni non. Alias voluptatibus fugiat nulla sed distinctio rerum eos tenetur dolore illo dolorum fuga necessitatibus, consequuntur natus deleniti quia minima nihil voluptate delectus, vitae a saepe impedit aliquam. Quas libero, odio molestiae atque fugit consequuntur temporibus minima rerum cumque, unde facere ducimus laboriosam neque quaerat, inventore asperiores voluptatem itaque non eum nihil aliquam id voluptatum! Autem recusandae sed odit numquam!
+                    </p>
+                    <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-3.jpg" class="fl">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga adipisci nulla aut delectus velit et alias sint quibusdam ab fugiat odit, maxime error magnam consequuntur earum quia enim quam natus incidunt, voluptatibus nobis eius. Rem qui aut dolorum perspiciatis facilis ratione sit eligendi neque nostrum id optio, quae, sunt, a ad deserunt voluptates error. Repellendus perferendis saepe ea laboriosam amet adipisci sint ad. Nesciunt numquam placeat nihil natus. Vitae, in.
+                    </p>
+                    <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-4.jpg" class="fr">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, harum ipsa corporis illum quam! Mollitia.
+                    </p>
+                    <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-5.jpg" class="fl">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea facilis molestias aliquam modi atque unde. At non atque natus, blanditiis, laborum hic odit voluptatem architecto ipsum tempore quidem perferendis reiciendis.
+                    </p>
+                     <p class="clearfix">
+                        <img src="img/loader.gif" alt="" data-src="img/img-6.jpg" class="fr">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus molestiae animi nemo, omnis rem. Omnis corrupti molestias, non ex distinctio natus quaerat repellat cum labore! Nam libero architecto tenetur, illum id quis, cum aliquid rerum quas nesciunt voluptatum commodi sed, amet ut distinctio voluptatem esse itaque quod aliquam. At saepe, temporibus facere laborum eaque vitae? Commodi possimus, corrupti dolore eaque, nostrum ab temporibus magni. Possimus quam, aut dolorum, sed sunt ex iusto recusandae temporibus unde natus. Nostrum, ad vero reiciendis labore eveniet facere, veniam maxime, praesentium molestias nemo ipsa. Quidem consectetur recusandae labore nemo quisquam sit unde, mollitia expedita ab!
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

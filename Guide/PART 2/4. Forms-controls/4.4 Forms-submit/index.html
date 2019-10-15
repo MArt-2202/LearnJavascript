@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Формы, элементы управления. Отправка формы: событие и метод submit</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container,.container-sm{margin:0 auto;padding:20px 10px;}.container-sm{max-width:576px;}.container{max-width:1000px;}section{margin-bottom:30px}h1,h2{padding-left :15px ;padding-right:15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom:10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p,ul,ol{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left:20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;color:#FFF;text-align:center;border:1px solid transparent;border-radius:2px;box-shadow:none;cursor:pointer;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1{background:#28a745;border-color:#28a745;}.btn-1:hover{background:#218838;border-color:#1e7e34;}.btn-2{background:#F72522;border-color:#F72522;}.btn-2:hover{background:#F60D09;border-color:#F60D09;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code,pre{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}.fl{float:left;}.fr{float:right;}.clearfix:before,.clearfix:after{content:'';display:table;}.clearfix:after{clear:both;}.content-1 > section,.content-1 > div{padding:10px;border:1px solid #EDEDED;}select,input,textarea{margin-bottom:20px;padding-left:10px;padding-right:10px; box-shadow:none;border:1px solid #CCCCCC;font-size: 12px;background:#FFFFFF;}select,input{height:30px;}textarea{padding-top:10px;padding-bottom:10px;resize:vertical;min-height:150px;}  select:focus,input:focus,textarea:focus{box-shadow:none;border-color:#28a745;outline: none;}.deposite-calculator__diagram td{vertical-align:bottom;}
+
+            @media(min-width: 701px){
+                .content-1 > section,.content-1 > div{float:left;width:48%;}.content-1 > section:nth-child(2n+2),.content-1 > div:nth-child(2n+2){float:right;}
+            }
+
+            .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out
+}
+
+.modal {
+    display: table;
+    height: 100%;
+    width: 100%
+}
+
+.modal>div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center
+}
+
+.modal__content {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    padding: 40px 10px;
+    background: #fff;
+    text-align: left;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transiion-delay: 100ms;
+    -moz-transiion-delay: 100ms
+}
+
+.show {
+    opacity: 1;
+    visibility: visible
+}
+
+.show .modal__content {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1)
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 20px;
+    line-height: 1 !important;
+    color: #F60D09;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+}
+
+.modal__close:hover{
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
+}
+
+.prompt-form{
+    margin-top: 10px;
+}
+
+.prompt-form input{
+    width: 100%;
+}
+
+.prompt-form button:focus{outline:2px solid skyblue;}
+
+@media (max-width: 320px) {
+    .modal-overlay {
+        padding-left:10px;
+        padding-right: 10px
+    }
+
+    .modal__content {
+        width: 100%
+    }
+}
+
+            
+
+            
+
+            
+
+           
+        </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>4.4 Отправка формы: событие и метод submit</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Модальное диалоговое окно с формой
+            </h2>
+            <p>Создайте функцию <code>showPrompt(html, callback)</code>, которая выводит форму с сообщением (<code>html</code>), полем ввода и кнопками OK/ОТМЕНА.ени.</p>
+            <ul>
+                <li>Пользователь должен ввести что-то в текстовое поле и нажать <code>Enter</code> или кнопку <code>«OK»</code>, после чего должна вызываться функция <code>callback(value</code>) со значением поля.</li>
+                <li>Если пользователь нажимает <code>Esc</code> или кнопку <code>«ОТМЕНА»</code>, тогда вызывается <code>callback(null)</code>.</li>
+            </ul>
+            <p>В обоих случаях нужно завершить процесс ввода и закрыть диалоговое окно с формой.</p>
+            <ul>
+                <li>Форма должна быть в центре окна.</li>
+                <li>Форма является модальным окном, это значит, что никакое взаимодействие с остальной частью страницы невозможно, пока пользователь не закроет его.</li>
+                <li>При показе формы, фокус должен находиться сразу внутри <code>input</code>.</li>
+                <li>Клавиши <code>Tab/Shift+Tab</code> должны переключать фокус между полями формы, не позволяя ему переходить к другим элементам страницы.</li>
+            </ul>
+            <button class="btn btn-1 run-code">Run code</button>
+
+            <div class="modal-overlay">
+                <div class="modal">
+                    <div>
+                        <div class="modal__content">
+                            <span class="modal__close" title="Закрыть">✖</span>
+                            <div class="prompt-message"></div>
+                            <form class="prompt-form">
+                                <input name="text">
+                                <div>
+                                    <button type="submit" class="btn btn-1">OK</button>
+                                    <button name="cancel" class="btn btn-2">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+            
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

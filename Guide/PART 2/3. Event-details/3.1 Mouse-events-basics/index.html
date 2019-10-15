@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Интерфейсные события. Основы событий мыши</title>
+    <style>
+    	html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container{max-width:1000px;margin:0 auto;padding:20px 10px;}section{margin-bottom:30px}h1,h2 {padding-left:15px ;padding-right:15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom: 10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p, ul{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left: 20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code,pre{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}
+
+            .list li{cursor:pointer;}li.selected{background:skyblue;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>3.1 Основы событий мыши</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Выделяемый список
+            </h2>
+            <p>Создайте список, в котором элементы могут быть выделены, как в файловых менеджерах.</p>
+            <ul>
+                <li>
+                    При клике на элемент списка выделяется только этот элемент (добавляется класс .selected), отменяется выделение остальных элементов.
+                </li>
+                <li>
+                    Если клик сделан вместе с <code>Ctrl</code> (<code>Cmd</code> для Mac), то выделение переключается на элементе, но остальные элементы при этом не изменяются.
+                </li>
+            </ul>
+            <div class="result">
+                <ul class="list">
+                    <li>Кристофер Робин</li>
+                    <li>Винни Пух</li>
+                    <li>Тигра</li>
+                    <li>Кенга</li>
+                    <li>Кролик. Просто Кролик.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Продвинутая работа с функциями</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container,.container-sm{margin:0 auto;padding:20px 10px;}.container-sm{max-width:576px;}.container{max-width:1000px;}section{margin-bottom:30px}h1,h2{padding-left :15px ;padding-right:15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom:10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p,ul,ol{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left:20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code,pre{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}.fl{float:left;}.fr{float:right;}.clearfix:before,.clearfix:after{content:'';display:table;}.clearfix:after{clear:both;}.content-1 > section,.content-1 > div{padding:10px;border:1px solid #EDEDED;}select,input,textarea{margin-bottom:20px;padding-left:10px;padding-right:10px; box-shadow:none;border:1px solid #CCCCCC;font-size: 12px;background:#FFFFFF;}select,input{height:30px;}textarea{padding-top:10px;padding-bottom:10px;resize:vertical;min-height:150px;}  select:focus,input:focus,textarea:focus{box-shadow:none;border-color:#28a745;outline: none;}.deposite-calculator__diagram td{vertical-align:bottom;}
+
+            @media(min-width: 701px){
+                .content-1 > section,.content-1 > div{float:left;width:48%;}.content-1 > section:nth-child(2n+2),.content-1 > div:nth-child(2n+2){float:right;}
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    	<h1>6.1 Планирование: setTimeout and setInterval</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Вывод каждую секунду
+            </h2>
+            <p>Напишите функцию <code>printNumbers(from, to)</code>, которая выводит число каждую секунду, начиная от <code>from</code> и заканчивая <code>to</code>.</p>
+            <p>Сделайте два варианта решения.</p>
+            <ol>
+                <li>Используя <code>setInterval</code>.</li>
+                <li>Используя рекурсивный <code>setTimeout</code>.</li>
+            </ol>
+            <div class="result">
+                <button class="btn btn-1" id="btn-1">Start with setTimeout</button>
+                <button class="btn btn-1" id="btn-2">Start with setInterval</button>
+            </div>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

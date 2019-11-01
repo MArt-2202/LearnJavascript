@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="HandheldFriendly" content="True">
+    <title>Рекурсия</title>
+    <style>
+        html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{height:100%}body{font-family:Arial,sans-serif}*{margin:0;padding:0;}.container,.container-sm{margin:0 auto;padding:20px 10px;}.container-sm{max-width:576px;}.container{max-width:1000px;}section{margin-bottom:30px}h1,h2{padding-left :15px ;padding-right:15px;font-weight:700;line-height:1.2;}h1{font-size:30px;margin-bottom:10px;}h2{margin-bottom:5px;font-size:18px; }.result {margin-bottom:10px;padding:15px;background:#ededed;font:12px Verdana,sans-serif;}p,ul,ol{margin-bottom:10px;font-size:12px;line-height:1.35;}table{font:12px Verdana,sans-serif;border-collapse:collapse;}th,td{padding:10px;border:1px solid #CCC;}th{background:#EDEDED;}ul,ol{list-style-position:inside;}li{margin-bottom:10px;}li ul, li ol{margin-left:20px;}.btn{display: inline-block;padding:11px 10px 9px 10px;font-size:14px;text-align: center;border:1px solid transparent;border-radius:2px;box-shadow:none;}.btn-1{color:#FFF;background:#28a745;border-color:#28a745;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}.btn-1:hover{background:#218838;border-color:#1e7e34;cursor:pointer;}.disabled{-webkit-pointer-events:none;-moz-pointer-events:none;pointer-events:none;}a{-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}img{max-width:100%;}code,pre{display:inline-block;padding:2px 5px;background:#F7F7F7;}@media(max-width: 576px){h1{font-size: 20px;}h2{font-size: 14px;}}.fl{float:left;}.fr{float:right;}.clearfix:before,.clearfix:after{content:'';display:table;}.clearfix:after{clear:both;}.content-1 > section,.content-1 > div{padding:10px;border:1px solid #EDEDED;}select,input,textarea{margin-bottom:20px;padding-left:10px;padding-right:10px; box-shadow:none;border:1px solid #CCCCCC;font-size: 12px;background:#FFFFFF;}select,input{height:30px;}textarea{padding-top:10px;padding-bottom:10px;resize:vertical;min-height:150px;}  select:focus,input:focus,textarea:focus{box-shadow:none;border-color:#28a745;outline: none;}.deposite-calculator__diagram td{vertical-align:bottom;}
+
+            @media(min-width: 701px){
+                .content-1 > section,.content-1 > div{float:left;width:48%;}.content-1 > section:nth-child(2n+2),.content-1 > div:nth-child(2n+2){float:right;}
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Рекурсия</h1>
+        <section id="section-1">
+            <h2>
+                Задача 1: Сума чисел
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-1">Start code</button>
+        </section>
+        <section id="section-2">
+            <h2>
+                Задача 2: Вывести елементы массива
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-2">Start code</button>
+        </section>
+         <section id="section-3">
+            <h2>
+                Задача 3: Вывести сумму елементов массива
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-3">Start code</button>
+        </section>
+        <section id="section-4">
+            <h2>
+                Задача 4: Вывести диапазон чисел
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-4">Start code</button>
+        </section>
+        <section id="section-5">
+            <h2>
+                Задача 5: Число Фибоначи
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-5">Start code</button>
+        </section>
+        <section id="section-6">
+            <h2>
+                Задача 6: Факториал
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-6">Start code</button>
+        </section>
+        <section id="section-7">
+            <h2>
+                Задача 7: Возведение в степень
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-7">Start code</button>
+        </section>
+        <section id="section-8">
+            <h2>
+                Задача 8: Выведите все числа от 1 до n
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-8">Start code</button>
+        </section>
+        <section id="section-9">
+            <h2>
+                Задача 9: Вывод чисел от a до b
+            </h2>
+            <p>Даны два целых числа a и b. Выведите все числа от a до b включительно, в порядке возрастания, если a < b, или в порядке убывания в противном случае.</p>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-9">Start code</button>
+        </section>
+        <section id="section-10">
+            <h2>
+                Задача 10: Вывод всех нечетных чисел от n до 1
+            </h2>
+            <div class="result">Вывод в консоль</div>
+            <button class="btn btn-1" id="btn-10">Start code</button>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

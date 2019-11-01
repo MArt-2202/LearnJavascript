@@ -1,0 +1,75 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+    /*
+    ============================================================
+        TASK-2: Улучшенные часы
+    ============================================================
+    */
+    let btn = document.querySelector('#section-1 .btn');
+    btn.addEventListener('click', task1);
+
+    function task1() {
+        class Clock {
+            constructor({ template }) {
+                this.template = template;
+            }
+
+            render() {
+                let date = new Date(),
+                    hours = date.getHours(),
+                    minutes = date.getMinutes(),
+                    seconds = date.getSeconds();
+
+                if (hours < 10) {
+                    hours = `0${hours}`;
+                }
+                if (minutes < 10) {
+                    minutes = `0${minutes}`;
+                }
+                if (seconds < 10) {
+                    seconds = `0${seconds}`;
+                }
+
+                let startClock = this.template
+                    .replace('h', hours)
+                    .replace('m', minutes)
+                    .replace('s', seconds);
+
+                console.log(startClock);
+            }
+
+            start() {
+                this.timer = setInterval(() => this.render(), 1000);
+            }
+
+            stop() {
+                setTimeout(() => {
+                    clearInterval(this.timer);
+                }, 10000)
+
+            }
+        }
+
+        let clock = new Clock({ template: 'h:m:s' });
+        clock.start();
+        clock.stop();
+
+        class ExtendedClock extends Clock{
+            constructor({template, precision = 1000}){
+                super({template});
+                this.precision = precision;
+            }
+
+            start(){
+                this.render();
+                this.timer = setInterval(() => this.render(), this.precision);
+            }
+        }
+
+        let newClock = new ExtendedClock(
+            {template: 'h:m:s', precision: 10000}
+        );
+
+        newClock.start();
+    }
+
+}); // END DOCUMENT READY
